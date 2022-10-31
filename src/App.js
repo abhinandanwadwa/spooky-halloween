@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Hero from './components/Hero/Hero';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -9,26 +11,17 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
+  // https://mixdesign.club/themeforest/oomph-halloween/img/demo/bg-demo.svg
+
   return (
     <>
     {isLoading ?
       <h1>Hello</h1>
       :
-      <div className="App bg-red-500">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="cont flex flex-col">
+        <Navbar />
+        <Hero />
+      </div>
     }
     </>
     
