@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Hero from './components/Hero/Hero';
+import Loader from './components/Loader/Loader';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
     // eslint-disable-next-line
   }, []);
 
@@ -16,7 +19,7 @@ function App() {
   return (
     <>
     {isLoading ?
-      <h1>Hello</h1>
+      <Loader />
       :
       <div className="cont flex flex-col">
         <Navbar />
