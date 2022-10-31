@@ -1,8 +1,20 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(false);
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <div className="App">
+    <>
+    {isLoading ?
+      <h1>Hello</h1>
+      :
+      <div className="App bg-red-500">
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,6 +29,9 @@ function App() {
         </a>
       </header>
     </div>
+    }
+    </>
+    
   );
 }
 
