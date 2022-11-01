@@ -11,11 +11,13 @@
     "react": "^18.2.0",
     "react-animated-cursor": "^2.5.2",
     "react-cursor-follow": "^2.0.0",
+    "react-detect-click-outside": "^1.1.7",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-scripts": "5.0.1",
     "react-social-icons": "^5.15.0",
     "smoke-effect-react": "^1.0.5",
+    "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

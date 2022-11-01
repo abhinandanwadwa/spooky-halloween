@@ -57,4 +57,22 @@
     100% {
       background-position: 0% 50%;
     }
-  }
+}
+
+.pumpk-image {
+    box-shadow: -2px 7px 20px 20px #ceb91996;
+    animation: pumpkAnimation infinite;
+    animation-duration: 3s;
+}
+
+@keyframes pumpkAnimation {
+    0% {
+        scale: 0.5;
+    }
+    50% {
+        scale: 1;
+    }
+    100% {
+        scale: 0.5;
+    }
+}
