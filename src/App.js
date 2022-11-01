@@ -3,6 +3,9 @@ import './App.css';
 import Hero from './components/Hero/Hero';
 import Loader from './components/Loader/Loader';
 import Navbar from './components/Navbar/Navbar';
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'Spooky Halloween';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +21,9 @@ function App() {
 
   return (
     <>
+    <Helmet>
+      <title>{ TITLE }</title>
+    </Helmet>
     {isLoading ?
       <Loader />
       :
