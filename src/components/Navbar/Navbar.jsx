@@ -61,7 +61,20 @@ const Navbar = () => {
         <button className='hidden' id='testId'></button>
 
         <div className='pumpk-image scale-150 absolute md:top-12 top-7 left-[51%] md:left-[50%] z-[1]'></div>
-        <img onMouseEnter={playSound} className='main-image md:w-[70px] w-[50px] relative z-[2] hover:scale-125 transition-all' src={pumpkLogo} alt="" />
+        <motion.img
+        initial = {{
+            // y: -20,
+            opacity: 0,
+        }}
+        animate = {{
+            // y: 0,
+            opacity: 1,
+        }}
+        transition = {{
+            duration: 0.4,
+            delay: 0.2
+        }}
+        onMouseEnter={playSound} className='main-image md:w-[70px] w-[50px] relative z-[2] hover:scale-125 transition-all' src={pumpkLogo} alt="" />
 
         <motion.div
         initial = {{
@@ -86,7 +99,7 @@ const Navbar = () => {
             <div ref={ref} className="button-wrapper">
                 <button onClick={toggleForm} id='box' className='gradient-border uppercase border border-gray-500 rounded-lg md:p-3 p-[0.5rem] text-xs md:mt-0 mt-2 md:inline-block md:text-sm text-gray-400 font-bold'>Grab Your Tickets!</button>
                 
-                <form id='button-form' className="hidden absolute p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <form id='button-form' className="hidden fixed p-6 md:max-w-sm max-w-[10rem] m-[0px -100px] bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
                 </form>
