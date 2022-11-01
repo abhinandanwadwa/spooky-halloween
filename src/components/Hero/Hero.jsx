@@ -72,8 +72,9 @@ const Hero = () => {
         duration: 0.35,
         delay: 0.2,
     }}
-    className='z-10 about uppercase tracking-widest text-xl max-w-sm mt-[-200px] m-0'>A Fun Loaded Halloween Event organised by <strong>Echoes - TIET</strong></motion.p>
+    className='z-10 about uppercase tracking-widest text-xl md:max-w-sm max-w-[19rem] mt-[-200px] m-0'>A Fun Loaded Halloween Event organised by <strong>Echoes - TIET</strong></motion.p>
     </div>
+    
     <div className="smoke absolute z-[0]">
         <SmokeElement
           opacity="0"
@@ -81,6 +82,7 @@ const Hero = () => {
           smokeOpacity="1"
         />
     </div>
+
     </>
   )
 }
