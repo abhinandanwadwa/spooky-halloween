@@ -32,7 +32,7 @@ const Loader = () => {
             delay: 0.4,
             type: 'spring'
         }}
-        className='mt-[33px] w-[120px] md:w-[200px]' src={logo} alt="" />
+        className='mt-[33px] w-[100px] md:w-[150px]' src={logo} alt="" />
     </div>
   )
 }

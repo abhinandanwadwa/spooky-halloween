@@ -1,0 +1,9 @@
+.navbar {
+    margin: 0px 140px;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+      margin: 0px;
+    }
+}

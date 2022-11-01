@@ -1,11 +1,12 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 import { motion } from 'framer-motion';
+import './navbar.css'
 
 
 const Navbar = () => {
   return (
-    <header className='flex items-start justify-between sticky top-0 p-5 max-w-7xl mx-auto z-20 xl:items-center'>
+    <header className='navbar flex md:m-[0px 140px] m-0 items-start justify-between sticky top-0 p-5 max-w-7xl mx-auto z-20 xl:items-center'>
         <motion.div
         initial = {{
             x: -500,

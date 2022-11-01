@@ -11,7 +11,7 @@ const Hero = () => {
     <AnimatedCursor
       innerSize={13}
       outerSize={13}
-      color='193, 11, 111'
+      color='207, 126, 44'
       outerAlpha={0.3}
       innerScale={0.7}
       outerScale={4}
@@ -29,7 +29,7 @@ const Hero = () => {
         '.link'
       ]}
     />
-    <div className="hero bg-[#131314] mt-[-90px] h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+    <div className="hero text-white bg-[#131314] mt-[-90px] h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
         {/* <Cursor size={45} duration={0.6} hollow={true} pulse={true} color="#4b0082" /> */}
         <motion.div
             initial = {{
@@ -43,7 +43,33 @@ const Hero = () => {
             }}
             className="image h-screen w-screen absolute">
         </motion.div>
-      <img src={logo} className="z-10 m-0 w-[200px] md:w-[350px]" alt="" />
+      <motion.img
+      initial = {{
+        opacity: 0,
+        y: 70,
+      }}
+      animate = {{
+        opacity: 1,
+        y: 0,
+      }}
+      transition = {{
+        duration: 0.35
+      }}
+      src={logo} className="z-10 m-0 w-[200px] md:w-[300px]" alt="" />
+    <motion.p
+    initial = {{
+        opacity: 0,
+        y: 50,
+    }}
+    animate = {{
+        opacity: 1,
+        y: 0,
+    }}
+    transition = {{
+        duration: 0.35,
+        delay: 0.2,
+    }}
+    className='z-10 about uppercase tracking-widest text-xl max-w-sm mt-[-200px] m-0'>A Fun Loaded Halloween Event organised by <strong>Echoes - TIET</strong></motion.p>
     </div>
     </>
   )
