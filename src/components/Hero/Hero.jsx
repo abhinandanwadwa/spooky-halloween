@@ -55,7 +55,8 @@ const Hero = () => {
                 y: 0,
             }}
             transition = {{
-                duration: 0.35
+                duration: 0.35,
+                delay: 0.1,
             }}
             src={logo} className="z-10 m-0 w-[200px] md:w-[300px]" alt="" />
         </div>
@@ -70,7 +71,7 @@ const Hero = () => {
     }}
     transition = {{
         duration: 0.35,
-        delay: 0.2,
+        delay: 0.3,
     }}
     className='z-10 about uppercase tracking-widest text-xl md:max-w-sm max-w-[19rem] mt-[-200px] m-0'>A Fun Loaded Halloween Event organised by <strong>Echoes - TIET</strong></motion.p>
     </div>
