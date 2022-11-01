@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import logo from '../../assets/logo-no-background.png'
 // import Cursor from 'react-cursor-follow';
 import AnimatedCursor from "react-animated-cursor";
+import SmokeElement from "smoke-effect-react";
 
 const Hero = () => {
   return (
@@ -43,19 +44,21 @@ const Hero = () => {
             }}
             className="image h-screen w-screen absolute">
         </motion.div>
-      <motion.img
-      initial = {{
-        opacity: 0,
-        y: 70,
-      }}
-      animate = {{
-        opacity: 1,
-        y: 0,
-      }}
-      transition = {{
-        duration: 0.35
-      }}
-      src={logo} className="z-10 m-0 w-[200px] md:w-[300px]" alt="" />
+        <div style={{marginTop: '-100px !important'}} className='z-10 image-wrapper flex mt-[-100px]'>
+            <motion.img
+            initial = {{
+                opacity: 0,
+                y: 70,
+            }}
+            animate = {{
+                opacity: 1,
+                y: 0,
+            }}
+            transition = {{
+                duration: 0.35
+            }}
+            src={logo} className="z-10 m-0 w-[200px] md:w-[300px]" alt="" />
+        </div>
     <motion.p
     initial = {{
         opacity: 0,
@@ -70,6 +73,13 @@ const Hero = () => {
         delay: 0.2,
     }}
     className='z-10 about uppercase tracking-widest text-xl max-w-sm mt-[-200px] m-0'>A Fun Loaded Halloween Event organised by <strong>Echoes - TIET</strong></motion.p>
+    </div>
+    <div className="smoke absolute z-[0]">
+        <SmokeElement
+          opacity="0"
+          smokeSrc="https://s3-us-west-2.amazonaws.com/s.cdpn.io/95637/Smoke-Element.png"
+          smokeOpacity="1"
+        />
     </div>
     </>
   )
