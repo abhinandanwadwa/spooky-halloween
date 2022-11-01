@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/spooky-halloween/static/css/main.3521b39a.css",
-    "main.js": "/spooky-halloween/static/js/main.0b09ebaa.js",
+    "main.js": "/spooky-halloween/static/js/main.a397a218.js",
     "static/media/logo-no-background.png": "/spooky-halloween/static/media/logo-no-background.0cd4c59627e08d5c4f6a.png",
     "index.html": "/spooky-halloween/index.html",
     "main.3521b39a.css.map": "/spooky-halloween/static/css/main.3521b39a.css.map",
-    "main.0b09ebaa.js.map": "/spooky-halloween/static/js/main.0b09ebaa.js.map"
+    "main.a397a218.js.map": "/spooky-halloween/static/js/main.a397a218.js.map"
   },
   "entrypoints": [
     "static/css/main.3521b39a.css",
-    "static/js/main.0b09ebaa.js"
+    "static/js/main.a397a218.js"
   ]
 }
