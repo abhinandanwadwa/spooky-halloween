@@ -12,18 +12,21 @@ const Navbar = () => {
 
     
     const toggleForm = () => {
-        const theForm = document.getElementById('button-form');
+        const theForm = document.getElementById('modal-wrapper');
+        const modalContent = document.getElementById('modal-form');
+        console.log(theForm);
         if (theForm.style.display === "block") {
             theForm.style.display = "none";
         }
         else {
-            theForm.style.display = "block";
+            theForm.style.display = "flex";
+            modalContent.classList.add('scale-up-center');
         }
     }
 
     const clickedOutsideForm = () => {
-        const theForm = document.getElementById('button-form');
-        if (theForm.style.display === "block") {
+        const theForm = document.getElementById('modal-wrapper');
+        if (theForm.style.display === "flex") {
             theForm.style.display = "none";
         }
     }
@@ -99,10 +102,14 @@ const Navbar = () => {
             <div ref={ref} className="button-wrapper">
                 <button onClick={toggleForm} id='box' className='gradient-border uppercase border border-gray-500 rounded-lg md:p-3 p-[0.5rem] text-xs md:mt-0 mt-2 md:inline-block md:text-sm text-gray-400 font-bold'>Grab Your Tickets!</button>
                 
-                <form id='button-form' className="hidden fixed p-6 md:max-w-sm max-w-[10rem] m-[0px -100px] bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </form>
+                {/* Modal Starts Here */}
+                <div id='modal-wrapper' className="modal-wrapper transition-all bg-[#000000a1] transform justify-center items-center hidden fixed z-10 left-0 top-0 w-[100%] h-[100%] overflow-auto">
+                    <form id='modal-form' className="modal-form absolute md:max-w-sm max-w-[10rem] bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                        <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    </form>
+                </div>
+                {/* Modal Ends Here */}
             </div>
 
         </motion.div>
