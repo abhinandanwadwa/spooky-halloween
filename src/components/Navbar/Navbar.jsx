@@ -27,32 +27,63 @@ const Navbar = () => {
         else {
             theForm.style.display = "flex";
             modalContent.classList.add('scale-up-center');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-up-center');
+            }, 1000);
         }
     }
 
     const clickedOutsideForm = () => {
+        const modalContent = document.getElementById('modal-form');
         const theForm = document.getElementById('modal-wrapper');
         if (theForm.style.display === "flex") {
-            theForm.style.display = "none";
+            modalContent.classList.add('scale-down-center');
+            setTimeout(() => {
+                theForm.style.display = "none";
+                modalContent.classList.remove('scale-down-center');
+            }, 200);
         }
     }
     
     const ref = useDetectClickOutside({ onTriggered: clickedOutsideForm });
 
+    const checkClickOutside = (e) => {
+        const modalWrapper = document.getElementById('modal-wrapper');
+        console.log(e.target);
+        if (modalWrapper === e.target) {
+            // console.log("OUTSIDE");
+            clickedOutsideForm();
+        }
+        // else {
+        //     console.log("INSIDE");
+        // }
+    }
+
     const submitForm = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:8181/sendtickets', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name, email })
-        })
+        if (name.trim() === "") {
+            toast.error("Please enter your name");
+        }
+        else if (email.trim() === "") {
+            toast.error("Please enter your email");
+        }
+        else {
+            const response = await fetch('http://localhost:8181/sendtickets', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email })
+            })
 
-        const json = await response.json();
-        if (json.success) {
-            clickedOutsideForm();
-            toast.success(json.success);
+            const json = await response.json();
+            if (json.success) {
+                clickedOutsideForm();
+                toast.success(json.success);
+            }
+            else {
+                toast.error("Some error occurred. Please try again later!");
+            }
         }
     }
     
@@ -128,8 +159,20 @@ const Navbar = () => {
                 <button onClick={toggleForm} id='box' className='gradient-border uppercase border border-gray-500 rounded-lg md:p-3 p-[0.5rem] text-xs md:mt-0 mt-2 md:inline-block md:text-sm text-gray-400 font-bold'>Grab Your Tickets!</button>
                 
                 {/* Modal Starts Here */}
-                <div id='modal-wrapper' className="modal-wrapper transition-all bg-[#000000a1] transform justify-center items-center hidden fixed z-10 left-0 top-0 w-[100%] h-[100%] overflow-auto">
+                <div onClick={checkClickOutside} id='modal-wrapper' className="modal-wrapper transition-all bg-[#000000a1] transform justify-center items-center hidden fixed z-10 left-0 top-0 w-[100%] h-[100%] overflow-auto">
                     <form onSubmit={submitForm} id='modal-form' className="modal-form absolute md:max-w-xl max-w-[24rem] bg-white rounded-[20px] shadow-md dark:bg-gray-800 dark:border-gray-700">
+
+
+
+                    <span onClick={clickedOutsideForm} id="badge-dismiss-red" className="badge-span inline-flex absolute items-center right-0 text-sm font-medium text-red-800 bg-red-500 rounded dark:bg-red-500 dark:text-red-800">
+                    <button type="button" className="inline-flex items-center p-0.5 text-sm text-red-300 bg-transparent rounded-sm hover:bg-red-500 hover:text-red-900 dark:hover:bg-red-500 dark:hover:text-red-900" data-dismiss-target="#badge-dismiss-red" aria-label="Remove">
+                        <svg aria-hidden="true" className="w-5 text-xl h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <span className="sr-only">Remove badge</span>
+                    </button>
+                    </span>
+
+
+
                         {/* <h1>Get Yourself Registered</h1> */}
                         <img style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px' }} width={1000} src={ticketImg} alt="" />
                         <div className="form p-5 flex flex-col my-4 justify-center items-center">
