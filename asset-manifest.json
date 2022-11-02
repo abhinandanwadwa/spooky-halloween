@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/spooky-halloween/static/css/main.c1df2131.css",
-    "main.js": "/spooky-halloween/static/js/main.8516ca66.js",
+    "main.js": "/spooky-halloween/static/js/main.1abab950.js",
     "static/js/845.7177e387.chunk.js": "/spooky-halloween/static/js/845.7177e387.chunk.js",
     "static/media/pumpk.jpg": "/spooky-halloween/static/media/pumpk.6e733d545b4b4c7c7aec.jpg",
     "static/media/ticket.jpeg": "/spooky-halloween/static/media/ticket.afb2e1ba8fae9062eea1.jpeg",
@@ -9,11 +9,11 @@
     "static/media/popEffect.flac": "/spooky-halloween/static/media/popEffect.c6d25f2e9013757e6c11.flac",
     "index.html": "/spooky-halloween/index.html",
     "main.c1df2131.css.map": "/spooky-halloween/static/css/main.c1df2131.css.map",
-    "main.8516ca66.js.map": "/spooky-halloween/static/js/main.8516ca66.js.map",
+    "main.1abab950.js.map": "/spooky-halloween/static/js/main.1abab950.js.map",
     "845.7177e387.chunk.js.map": "/spooky-halloween/static/js/845.7177e387.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c1df2131.css",
-    "static/js/main.8516ca66.js"
+    "static/js/main.1abab950.js"
   ]
 }
