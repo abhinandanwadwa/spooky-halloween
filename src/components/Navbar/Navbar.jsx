@@ -7,6 +7,8 @@ import useSound from 'use-sound';
 import popEffect from '../../assets/popEffect.flac';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import ticketImg from '../../assets/ticket.jpeg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
     const [name, setName] = useState("");
@@ -48,10 +50,15 @@ const Navbar = () => {
         })
 
         const json = await response.json();
-        console.log(json);
+        if (json.success) {
+            clickedOutsideForm();
+            toast.success(json.success);
+        }
     }
     
   return (
+    <>
+    <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
     <header className='navbar flex md:m-[0px 140px] m-0 items-start justify-between sticky top-0 p-3 md:p-5 max-w-7xl mx-auto z-20 xl:items-center'>
         <audio id='pop-audio'>
 	        <source src={popEffect}></source>
@@ -143,6 +150,7 @@ const Navbar = () => {
 
         </motion.div>
     </header>
+    </>
   )
 }
 
