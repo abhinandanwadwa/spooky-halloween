@@ -68,7 +68,7 @@ const Navbar = () => {
             toast.error("Please enter your email");
         }
         else {
-            const response = await fetch('http://localhost:8181/sendtickets', {
+            const response = await fetch('https://spooky-halloween-backend.herokuapp.com/sendtickets', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
