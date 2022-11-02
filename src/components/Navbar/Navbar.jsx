@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SocialIcon } from 'react-social-icons';
 import { motion } from 'framer-motion';
 import './navbar.css'
@@ -6,8 +6,12 @@ import pumpkLogo from '../../assets/pumpk.jpg';
 import useSound from 'use-sound';
 import popEffect from '../../assets/popEffect.flac';
 import { useDetectClickOutside } from 'react-detect-click-outside';
+import ticketImg from '../../assets/ticket.jpeg';
 
 const Navbar = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+
     const [playSound] = useSound(popEffect);
 
     
@@ -32,6 +36,20 @@ const Navbar = () => {
     }
     
     const ref = useDetectClickOutside({ onTriggered: clickedOutsideForm });
+
+    const submitForm = async (e) => {
+        e.preventDefault();
+        const response = await fetch('http://localhost:8181/sendtickets', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email })
+        })
+
+        const json = await response.json();
+        console.log(json);
+    }
     
   return (
     <header className='navbar flex md:m-[0px 140px] m-0 items-start justify-between sticky top-0 p-3 md:p-5 max-w-7xl mx-auto z-20 xl:items-center'>
@@ -104,9 +122,20 @@ const Navbar = () => {
                 
                 {/* Modal Starts Here */}
                 <div id='modal-wrapper' className="modal-wrapper transition-all bg-[#000000a1] transform justify-center items-center hidden fixed z-10 left-0 top-0 w-[100%] h-[100%] overflow-auto">
-                    <form id='modal-form' className="modal-form absolute md:max-w-sm max-w-[10rem] bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                        <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    <form onSubmit={submitForm} id='modal-form' className="modal-form absolute md:max-w-xl max-w-[24rem] bg-white rounded-[20px] shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        {/* <h1>Get Yourself Registered</h1> */}
+                        <img style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px' }} width={1000} src={ticketImg} alt="" />
+                        <div className="form p-5 flex flex-col my-4 justify-center items-center">
+                            <div className="flex space-x-4 mb-4 justify-center items-center w-[90%] flex-row">
+                                {/* <span>Name:</span> */}
+                                <input value={name} onChange={(e) => setName(e.target.value)} placeholder='Your Name' className='bg-[#00000045] rounded-lg p-2 w-[100%]' type="text" />
+                            </div>
+                            <div className="flex space-x-4 mb-6 justify-center items-center w-[90%] flex-row">
+                                {/* <span>Email:</span> */}
+                                <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Your Email' className='bg-[#00000045] rounded-lg p-2 w-[100%]' type="text" />
+                            </div>
+                            <button className='gradient-border1 z-10 w-[90%] box uppercase border border-gray-500 rounded-lg md:p-3 p-[0.5rem] text-md tracking-widest text-white md:tracking-[2px] md:mt-0 mt-5 md:inline-block bg-opacity-50 md:text-sm font-bold'>Gimme My Ticket!</button>
+                        </div>
                     </form>
                 </div>
                 {/* Modal Ends Here */}

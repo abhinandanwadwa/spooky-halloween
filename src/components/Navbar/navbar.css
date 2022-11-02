@@ -2,12 +2,6 @@
     margin: 0px 140px;
 }
 
-@media only screen and (max-width: 600px) {
-    .navbar {
-      margin: 0px;
-    }
-}
-
 #box {
     display: flex;
     align-items: center;
@@ -17,7 +11,24 @@
     transition: all 0.5s;
 }
 
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px !important;
+    background-color: #1d1f20eb;
+    transition: all 0.5s;
+}
+
 .gradient-border {
+    --borderWidth: 2px;
+    border-radius: 10px !important;
+    /* background-color: #1D1F20; */
+    position: relative;
+    border-radius: var(--borderWidth);
+}
+
+.gradient-border1 {
     --borderWidth: 2px;
     border-radius: 10px !important;
     /* background-color: #1D1F20; */
@@ -40,8 +51,28 @@
     animation: animatedgradient 3s ease alternate infinite;
     background-size: 300% 300%;
 }
+.gradient-border1:after {
+    content: '';
+    border-radius: 10px !important;
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+    opacity: 0.5;
+}
 
 #box:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.box:hover {
     background-color: transparent;
     color: white;
 }
@@ -107,3 +138,32 @@
         transform:scale(1);transform-origin:top right
     }
 } */
+
+
+
+input::placeholder {
+    opacity: 0.3;
+    color: white;
+    padding: 37%;
+    letter-spacing: 5px;
+}
+
+input {
+    border: none;
+    outline: none;
+    letter-spacing: 2px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+      margin: 0px;
+    }
+    input::placeholder {
+        opacity: 0.3;
+        color: white;
+        padding: 30%;
+        letter-spacing: 5px;
+    }
+}
