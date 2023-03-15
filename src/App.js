@@ -5,7 +5,7 @@ import Loader from './components/Loader/Loader';
 import Navbar from './components/Navbar/Navbar';
 import { Helmet } from 'react-helmet';
 
-const TITLE = 'Spooky Halloween';
+const TITLE = 'Spooky Halloween | ECHOES';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +27,7 @@ function App() {
     {isLoading ?
       <Loader />
       :
-      <div className="cont flex flex-col">
+      <div className="cont flex flex-col overflow-x-hidden	">
         <Navbar />
         <Hero />
       </div>
